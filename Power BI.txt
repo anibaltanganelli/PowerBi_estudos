@@ -1,0 +1,79 @@
+POWER BI
+
+Plataforma de visualização de dados através de Dashboards. 
+Opera na nuvem, na máquina apenas temos o PBI desktop.
+Estrutura de dados relacionais (reduzir redundância, integridade)
+
+o free tem até 1gb de armazenamento e o Pro 10gb.
+
+FERRAMENTAS
+
+- Desktop (cria relatórios), power bi service (serviço online onde os relatórios estão compartilhados,
+Power BI gateway (conexão com fontes de dados. precisa ser instalado a parte.), Power BI Mobille Apps (visualização mobile).
+
+GUIAS
+
+- Guia modelo (relacionamentos entre entidades com seus atributos): é possível editar o texto, decimais e etc
+
+- Guia dados: pode-se visualizar dados importados, criar campos calculados (informações que não existem mas serão calculada com funções DAX)
+
+- Guia relatórios: onde se constrói os relatórios. configuração de elementos gráficos, análises, filtros
+
+MENU
+- Arquivo (importar dados, salvar) 
+- Inserir (elementos no relaórios
+- Modelagem (fonte, iserir dados
+- Exibição (temas, tipo de exibição de página
+- Ajuda
+- Formata (formatação dos controles).
+
+ETAPAS
+
+- Conhecer dados (estrutura dos dados, informações que eles podem provir)
+- Formular perguntas (podem ser geradas pela área de negócio)
+- Desenvolver painéis (respondendo perguntas)
+- publicar Dashboard
+
+
+DADOS RELACIONAIS
+- cada objeto possui sua chave que é seu identificador, permitindo atualização evitando redundâncias e dados errados. 
+- é ncessária a criação de 'tabelas' para novas entidades (ex. a entidade vendas possui o id do vendedor, o id do cliente, data e valor total; para o pedido de cada venda pode-se ter uam entidade Itens vendas ao qual tem-se o id de vendas, quantidade, valor unitário, valor total, desconto...) 
+- Linhas, Tuplas são instâncias, linhas.
+ 
+
+Iniciando
+- Uma vez que conhecemos os modelos de dados
+- Sabemos as perguntas 
+- Dividimos os artefatos em relatórios (painéis):cada um desses relatórios, responde às perguntas relacionadas a ele. Por exemplo relatório cliente (qual cliente mais compra? Qual região estão? Total de vendas por fênero? etc).
+
+Carregar dados:
+
+- Obter dados
+- selecionar a fonte dos dados (arquivos, onde se encontra; banco de dados, os principais e alguns precisam instalar o drive; outras plataformas...)
+- Arquivo em excel, selecionar no disco, abrir, selecionar os dados que pretende usar e carregar
+
+TRATAMENTO
+
+Guia modelo
+
+- Relacionamentos: editar permite criar e excluir os relacionamentos. Os campos não possuem valor semântico, podemos deixá-los invisíveis clicando em oculto.
+pode-se ajustar os tipos de dados ao clicar no campo e ir na aba propriedade. Podemos colocar moeda, casas decimais e etc. 
+
+DAX
+
+Dax calendário = Calendar (min (Nome[coluna]); (max (Nome[coluna])
+
+Ano = year(nome[nome])
+
+Mês = month (nome[nome])
+o resultado será dado em número. para transformar em descrição
+Mês descr = format (Vendas[Data da Venda], "MMM")
+
+
+Dia = day (nome[nome])
+
+estado
+Estado = (if([Loja] = "São Paulo", "SP", if([Loja] = "Campinas", "SP", if([Loja] = "Guarulhos", "SP" , if([Loja] = "Belo Horizonte", "MG", if([Loja] = "Curitiba", "PR", if([Loja] = "Fortaleza", "CE", if([Loja] = "Recife", "PR", if([Loja] = "Goiânia", "GO", if([Loja] = "Niterói", "RJ", if([Loja] = "Nova Iguaçu", "RJ", if([Loja] = "Porto Alegre", "RS", if([Loja] = "Rio de Janeiro", "RJ", if([Loja] = "Salvador", "BA"))))))    ))))))))
+
+multiplicação
+Custo Venda = Vendas[Quantidade Vendida] * Vendas[Custo unitário]
